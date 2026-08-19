@@ -1,5 +1,8 @@
 name: Build and publish dev-build pre-release
 
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
   push:
@@ -60,3 +63,5 @@ jobs:
           asset_path: ./main-dev-build.tar.gz
           asset_name: main-dev-build.tar.gz
           asset_content_type: application/gzip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
